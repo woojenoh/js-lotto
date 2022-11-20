@@ -31,7 +31,7 @@ describe("로또 어플리케이션을 테스트한다.", () => {
     });
 
     it("구입 금액 input이 있다.", () => {
-      getPurchaseAmountInput().should("exist");
+      getPurchaseAmountInput().should("be.visible");
     });
 
     it("구입 금액을 입력하면 화면에 입력한 금액이 그대로 보여진다.", () => {
@@ -51,7 +51,7 @@ describe("로또 어플리케이션을 테스트한다.", () => {
     });
 
     it("확인 버튼이 있다.", () => {
-      getPurchaseButton().should("exist");
+      getPurchaseButton().should("be.visible");
     });
 
     it("금액을 1,000원 단위로 입력하지 않고 확인 버튼을 클릭하면 alert를 띄워준다.", () => {
@@ -68,7 +68,7 @@ describe("로또 어플리케이션을 테스트한다.", () => {
     it("확인 버튼을 클릭했을 때, 입력한 금액에 맞는 로또 개수가 발급된다.", () => {
       getPurchaseAmountInput().type("3000");
       getPurchaseButton().click();
-      getLottoTicket().should("have.length", 3);
+      getLottoTicket().should("be.visible").should("have.length", 3);
     });
   });
 
@@ -81,7 +81,7 @@ describe("로또 어플리케이션을 테스트한다.", () => {
     });
 
     it("번호보기 토글이 있다.", () => {
-      getShowNumbersToggle().should("exist");
+      getShowNumbersToggle().should("be.visible");
     });
 
     it("번호보기 토글을 클릭하면 로또 번호를 볼 수 있다.", () => {
@@ -124,8 +124,8 @@ describe("로또 어플리케이션을 테스트한다.", () => {
     });
 
     it("당첨 번호 input이 6개, 보너스 번호 input이 1개 있다.", () => {
-      getWinningNumberInput().should("have.length", 6);
-      getBonusNumberInput().should("have.length", 1);
+      getWinningNumberInput().should("be.visible").should("have.length", 6);
+      getBonusNumberInput().should("be.visible").should("have.length", 1);
     });
 
     it("당첨 번호 input과 보너스 번호 input에는 숫자만 입력할 수 있다.", () => {
@@ -146,7 +146,7 @@ describe("로또 어플리케이션을 테스트한다.", () => {
     });
 
     it("결과 확인하기 버튼이 있다.", () => {
-      getOpenWinningResultButton().should("exist");
+      getOpenWinningResultButton().should("be.visible");
     });
 
     it("결과 확인하기 버튼을 눌렀을 때 당첨 번호와 보너스 번호 input에 중복된 숫자가 있으면 alert를 띄워준다.", () => {
