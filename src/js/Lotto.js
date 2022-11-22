@@ -1,5 +1,6 @@
 import PurchaseResult from "./PurchaseResult.js";
 import { NOT_IN_THOUSANDS } from "../constants/message.js";
+import ExpectWinningResult from "./ExpectWinningResult.js";
 
 const TICKET_PRICE = 1000;
 
@@ -13,6 +14,7 @@ class Lotto {
     );
 
     this.PurchaseResult = new PurchaseResult();
+    this.ExpectWinningResult = new ExpectWinningResult();
   }
 
   setEvent() {
@@ -34,6 +36,7 @@ class Lotto {
   purchaseLotto() {
     const purchaseCount = this.purchaseAmount / TICKET_PRICE;
     this.PurchaseResult.render(purchaseCount);
+    this.ExpectWinningResult.render();
   }
 }
 
