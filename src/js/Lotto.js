@@ -7,6 +7,7 @@ const TICKET_PRICE = 1000;
 class Lotto {
   constructor() {
     this.purchaseAmount = 0;
+    this.expectNumbers = [];
 
     this.$purchaseForm = document.querySelector("#purchase-form");
     this.$purchaseAmountInput = document.querySelector(
@@ -14,7 +15,9 @@ class Lotto {
     );
 
     this.PurchaseResult = new PurchaseResult();
-    this.ExpectWinningResult = new ExpectWinningResult();
+    this.ExpectWinningResult = new ExpectWinningResult({
+      expectNumbers: this.expectNumbers,
+    });
   }
 
   setEvent() {
@@ -31,6 +34,7 @@ class Lotto {
     });
 
     this.PurchaseResult.setEvent();
+    this.ExpectWinningResult.setEvent();
   }
 
   purchaseLotto() {
