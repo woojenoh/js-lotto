@@ -1,6 +1,7 @@
 import PurchaseResult from "./PurchaseResult.js";
 import { NOT_IN_THOUSANDS } from "../constants/message.js";
 import ExpectWinningResult from "./ExpectWinningResult.js";
+import WinningResultModal from "./WinningResultModal.js";
 
 const TICKET_PRICE = 1000;
 
@@ -18,6 +19,7 @@ class Lotto {
     this.ExpectWinningResult = new ExpectWinningResult({
       expectNumbers: this.expectNumbers,
     });
+    this.WinningResultModal = new WinningResultModal();
   }
 
   setEvent() {
@@ -35,6 +37,7 @@ class Lotto {
 
     this.PurchaseResult.setEvent();
     this.ExpectWinningResult.setEvent();
+    this.WinningResultModal.setEvent();
   }
 
   purchaseLotto() {

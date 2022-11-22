@@ -10,6 +10,9 @@ class ExpectWinningResult {
       "#expect-winning-result "
     );
     this.$expectForm = document.querySelector("#expect-form");
+    this.$winningResultModal = document.querySelector(
+      "#winning-result-modal-modal"
+    );
 
     this.ExpectNumberInputs = new ExpectNumberInputs({ expectNumbers });
   }
@@ -20,7 +23,7 @@ class ExpectWinningResult {
       if (checkDuplicateExists(this.expectNumbers)) {
         alert(DUPLICATE_EXPECT_NUMBER);
       } else {
-        console.log("go next!");
+        this.$winningResultModal.classList.add("open");
       }
     });
 
