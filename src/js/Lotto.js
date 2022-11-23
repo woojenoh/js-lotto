@@ -1,6 +1,5 @@
 import PurchaseResult from "./PurchaseResult.js";
 import ExpectWinningResult from "./ExpectWinningResult.js";
-import WinningResultModal from "./WinningResultModal.js";
 import { getNumberFilledArray, shuffleArray } from "./utils.js";
 import { NOT_IN_THOUSANDS } from "../constants/message.js";
 
@@ -19,9 +18,9 @@ class Lotto {
 
     this.PurchaseResult = new PurchaseResult();
     this.ExpectWinningResult = new ExpectWinningResult({
+      purchasedTickets: this.purchasedTickets,
       expectNumbers: this.expectNumbers,
     });
-    this.WinningResultModal = new WinningResultModal();
   }
 
   setEvent() {
@@ -39,18 +38,22 @@ class Lotto {
 
     this.PurchaseResult.setEvent();
     this.ExpectWinningResult.setEvent();
-    this.WinningResultModal.setEvent();
   }
 
-  getRandomTickets(purchaseCount) {
-    return Array(purchaseCount)
-      .fill()
-      .map(() => shuffleArray(getNumberFilledArray(45)).slice(0, 6).join(", "));
+  setRandomTickets(purchaseCount) {
+    this.purchasedTickets.splice(0);
+    for (let i = 0; i < purchaseCount; i++) {
+      const randomLottoNumber = shuffleArray(getNumberFilledArray(45)).slice(
+        0,
+        6
+      );
+      this.purchasedTickets.push(randomLottoNumber);
+    }
   }
 
   purchaseLotto() {
     const purchaseCount = this.purchaseAmount / TICKET_PRICE;
-    this.purchasedTickets = this.getRandomTickets(purchaseCount);
+    this.setRandomTickets(purchaseCount);
     this.PurchaseResult.render({ purchasedTickets: this.purchasedTickets });
     this.ExpectWinningResult.render();
   }

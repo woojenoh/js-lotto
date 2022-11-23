@@ -9,7 +9,7 @@ class Tickets {
             <span class="mx-1 text-4xl d-flex items-center" data-cy="lotto-ticket">
               <span class="ticket-icon">🎟️</span>
               <span class="ticket-detail text-base ml-2 d-none" id="ticket-detail">
-                ${cur}
+                ${cur.join(', ')}
               </span>
             </span>`;
       acc += ticketTemplate;

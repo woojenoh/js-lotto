@@ -1,5 +1,5 @@
 export function getNumberFilledArray(length) {
-  return Array.from({ length }, (_, i) => i + 1);
+  return Array.from({ length }, (_, i) => String(i + 1));
 }
 
 export function shuffleArray(array) {
@@ -8,4 +8,8 @@ export function shuffleArray(array) {
 
 export function checkDuplicateExists(array) {
   return new Set(array).size !== array.length;
+}
+
+export function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
