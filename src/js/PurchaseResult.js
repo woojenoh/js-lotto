@@ -16,11 +16,11 @@ class PurchaseResult {
     this.ShowNumbersToggle.setEvent();
   }
 
-  render(purchaseCount) {
+  render({ purchasedTickets }) {
     this.$purchaseResult.classList.remove("d-none");
     this.$ticketContainer.innerHTML = "";
-    this.PurchaseCount.render({ purchaseCount });
-    this.Tickets.render({ purchaseCount });
+    this.PurchaseCount.render({ purchaseCount: purchasedTickets.length });
+    this.Tickets.render({ purchasedTickets });
   }
 }
 

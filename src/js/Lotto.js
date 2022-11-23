@@ -1,13 +1,15 @@
 import PurchaseResult from "./PurchaseResult.js";
-import { NOT_IN_THOUSANDS } from "../constants/message.js";
 import ExpectWinningResult from "./ExpectWinningResult.js";
 import WinningResultModal from "./WinningResultModal.js";
+import { getNumberFilledArray, shuffleArray } from "./utils.js";
+import { NOT_IN_THOUSANDS } from "../constants/message.js";
 
 const TICKET_PRICE = 1000;
 
 class Lotto {
   constructor() {
     this.purchaseAmount = 0;
+    this.purchasedTickets = [];
     this.expectNumbers = [];
 
     this.$purchaseForm = document.querySelector("#purchase-form");
@@ -40,9 +42,16 @@ class Lotto {
     this.WinningResultModal.setEvent();
   }
 
+  getRandomTickets(purchaseCount) {
+    return Array(purchaseCount)
+      .fill()
+      .map(() => shuffleArray(getNumberFilledArray(45)).slice(0, 6).join(", "));
+  }
+
   purchaseLotto() {
     const purchaseCount = this.purchaseAmount / TICKET_PRICE;
-    this.PurchaseResult.render(purchaseCount);
+    this.purchasedTickets = this.getRandomTickets(purchaseCount);
+    this.PurchaseResult.render({ purchasedTickets: this.purchasedTickets });
     this.ExpectWinningResult.render();
   }
 }
