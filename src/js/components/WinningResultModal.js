@@ -81,11 +81,11 @@ class WinningResultModal {
       .reverse()
       .reduce((acc, cur) => {
         const winningResultRowTemplate = `
-        <tr class="text-center">
-          <td class="p-3">${lotteryMatchTextHash[cur]}</td>
-          <td class="p-3">${numberWithCommas(lotteryPrizeHash[cur])}</td>
-          <td class="p-3">${winningStatus[cur]}</td>
-        </tr>`;
+          <tr class="text-center">
+            <td class="p-3">${lotteryMatchTextHash[cur]}</td>
+            <td class="p-3">${numberWithCommas(lotteryPrizeHash[cur])}</td>
+            <td class="p-3">${winningStatus[cur]}</td>
+          </tr>`;
         acc += winningResultRowTemplate;
         return acc;
       }, "");
