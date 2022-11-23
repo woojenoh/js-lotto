@@ -1,9 +1,10 @@
+import { numberWithCommas } from "../utils.js";
 import {
   lotteryRankHash,
   lotteryPrizeHash,
   lotteryMatchTextHash,
 } from "../constants/hash.js";
-import { numberWithCommas } from "../utils.js";
+import { TICKET_PRICE } from "../constants/price.js";
 
 class WinningResultModal {
   constructor() {
@@ -62,7 +63,7 @@ class WinningResultModal {
   }
 
   getRateOfReturn(totalEarnMoney, purchasedTickets) {
-    const totalTicketPrice = purchasedTickets.length * 1000;
+    const totalTicketPrice = purchasedTickets.length * TICKET_PRICE;
     return (totalEarnMoney - totalTicketPrice) / totalTicketPrice;
   }
 

@@ -2,8 +2,7 @@ import PurchaseResult from "./PurchaseResult.js";
 import ExpectWinningResult from "./ExpectWinningResult.js";
 import { getNumberFilledArray, shuffleArray } from "../utils.js";
 import { NOT_IN_THOUSANDS } from "../constants/message.js";
-
-const TICKET_PRICE = 1000;
+import { TICKET_PRICE } from "../constants/price.js";
 
 class Lotto {
   constructor() {
