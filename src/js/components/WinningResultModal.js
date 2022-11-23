@@ -3,7 +3,7 @@ import {
   lotteryPrizeHash,
   lotteryMatchTextHash,
 } from "../constants/hash.js";
-import { numberWithCommas } from "./utils.js";
+import { numberWithCommas } from "../utils.js";
 
 class WinningResultModal {
   constructor() {

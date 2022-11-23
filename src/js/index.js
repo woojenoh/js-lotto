@@ -1,4 +1,4 @@
-import Lotto from "./Lotto.js";
+import Lotto from "./components/Lotto.js";
 
 const LottoInstance = new Lotto();
 LottoInstance.setEvent();

@@ -1,6 +1,6 @@
 import ExpectNumberInputs from "./ExpectNumberInputs.js";
 import WinningResultModal from "./WinningResultModal.js";
-import { checkDuplicateExists } from "./utils.js";
+import { checkDuplicateExists } from "../utils.js";
 import { DUPLICATE_EXPECT_NUMBER } from "../constants/message.js";
 
 class ExpectWinningResult {
