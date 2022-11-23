@@ -172,7 +172,7 @@ describe("로또 어플리케이션을 테스트한다.", () => {
       getWinningNumberInput().each(($input, index) => {
         cy.wrap($input).type(index + 1);
       });
-      getBonusNumberInput().type(6);
+      getBonusNumberInput().type(7);
       getOpenWinningResultButton().click();
     });
 
