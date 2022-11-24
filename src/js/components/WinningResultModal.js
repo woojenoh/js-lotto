@@ -18,11 +18,15 @@ class WinningResultModal {
       "#winning-result-table-body"
     );
     this.$returnRate = document.querySelector("#return-rate");
+    this.$resetButton = document.querySelector("#reset-button");
   }
 
   setEvent() {
     this.$winningResultModalCloseButton.addEventListener("click", () => {
       this.$winningResultModal.classList.remove("open");
+    });
+    this.$resetButton.addEventListener("click", () => {
+      window.location.reload();
     });
   }
 
